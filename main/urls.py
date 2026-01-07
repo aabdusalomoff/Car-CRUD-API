@@ -7,12 +7,11 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 
 
 router = DefaultRouter()
-router.register(r'cars', views.CarModelViewSet)
+router.register('cars', views.CarModelViewSet)
 
 urlpatterns = [
-    path('api/cars/', include(router.urls), name='cars'),
+    path('api/', include(router.urls)),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-
 ]

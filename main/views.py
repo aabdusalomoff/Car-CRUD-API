@@ -27,7 +27,3 @@ class CarModelViewSet(ModelViewSet):
     search_fields = ['model']
     ordering_fields = ['price', 'year']
     filterset_class = CarFilterSet
-
-    @action(detail=True, methods=["GET"])
-    def random(self, request):
-        return Response({"text": "hello world"})
